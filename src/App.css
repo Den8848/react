@@ -1,0 +1,61 @@
+body {
+  background-color: darkslateblue;
+}
+
+.App-title {
+  font-family: monospace;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 150px;
+  letter-spacing: 5px;
+}
+
+.App-title:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.App__form {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 80px;
+}
+
+.form__login,
+.form__password {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 0;
+}
+
+.form__login-label,
+.form__password-label {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.form__login-input,
+.form__password-input {
+  width: 400px;
+  height: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 10px;
+  border: solid 2px white;
+  outline: none;
+}
+
+.form__submit-button {
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: solid 2px white;
+  margin-top: 30px;
+}
+
+.form__submit-button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: darkslateblue;
+}

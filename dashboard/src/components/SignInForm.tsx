@@ -2,10 +2,10 @@ import React from 'react';
 import {Field, Form, Formik} from "formik";
 import ValidationSchema from '../validation/signInValidation';
 import { useNavigate } from "react-router-dom";
+import ROUTES from '../defaultData/routes';
 
 const SignInForm = () => {
-    const Navigate = useNavigate();
-    const DashboardUrl = '/dashboard';
+    const navigate = useNavigate();
 
     return (
         <div>
@@ -20,7 +20,7 @@ const SignInForm = () => {
                     validateOnChange={true}
                     validationSchema={ValidationSchema}
                     onSubmit={() => {
-                        Navigate(DashboardUrl);
+                        navigate(ROUTES.DASHBOARD_PAGE);
                     }}
                 >
                     {({errors, touched}) => <div className="form__wrapper">

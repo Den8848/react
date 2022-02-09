@@ -1,10 +1,9 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
+import ROUTES from '../defaultData/routes';
 
 const StartPage = () => {
-    const Navigate = useNavigate();
-    const SignInUrl = '/sign-in';
-    const SignUpUrl = '/sign-up';
+    const navigate = useNavigate();
 
     return (
         <div className="App">
@@ -14,13 +13,13 @@ const StartPage = () => {
                 <div className="App__buttons">
                     <button
                         className="button__sign-in"
-                        onClick={() => {Navigate(SignInUrl)}}>
+                        onClick={() => {navigate(ROUTES.SIGN_IN_PAGE)}}>
                         Sign In
                     </button>
 
                     <button
                         className="button__sign-up"
-                        onClick={() => {Navigate(SignUpUrl)}}>
+                        onClick={() => {navigate(ROUTES.SIGN_UP_PAGE)}}>
                         Sign Up
                     </button>
                 </div>

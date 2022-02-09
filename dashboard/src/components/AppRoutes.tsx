@@ -4,15 +4,9 @@ import StartPage from "./StartPage";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import Dashboard from "./Dashboard";
+import ROUTES from '../defaultData/routes';
 
 const AppRoutes = () => {
-    const ROUTES = {
-        HOME_PAGE: '/',
-        SIGN_IN_PAGE: '/sign-in',
-        SIGN_UP_PAGE: '/sign-up',
-        DASHBOARD_PAGE: '/dashboard'
-    }
-
     return (
         <div>
             <Router>

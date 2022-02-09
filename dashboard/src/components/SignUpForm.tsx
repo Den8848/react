@@ -25,7 +25,7 @@ const SignUpForm = () => {
                         navigate(ROUTES.DASHBOARD_PAGE);
                     }}
                 >
-                    {({errors, touched}) => <div className="form__wrapper">
+                    {({values, errors, touched}) => <div className="form__wrapper">
                         <Form className="form">
                             <label htmlFor="userName">User name</label>
                             <Field className="input__field" id="userName" name="userName" placeholder="Maximus" />
@@ -60,7 +60,9 @@ const SignUpForm = () => {
                             {touched.confirmPassword && errors.confirmPassword && <p className="error__message">{errors.confirmPassword}</p>}
 
                             <div className="button__wrapper">
-                                <button type="submit" className="button__submit">Submit</button>
+                                <button type="submit" className="button__submit" onClick={() => {
+                                    localStorage.setItem('form', JSON.stringify(values))}
+                                }>Submit</button>
                             </div>
                         </Form>
                     </div>}

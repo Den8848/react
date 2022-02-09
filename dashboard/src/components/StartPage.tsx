@@ -1,24 +1,28 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const StartPage = () => {
+    const Navigate = useNavigate();
+    const SignInUrl = '/sign-in';
+    const SignUpUrl = '/sign-up';
+
     return (
         <div className="App">
             <h1 className="App__title">Start Page</h1>
 
             <div className="App__buttons-wrapper">
                 <div className="App__buttons">
-                    <Link to="/sign-in">
-                        <button className="button__sign-in">
-                            Sign In
-                        </button>
-                    </Link>
+                    <button
+                        className="button__sign-in"
+                        onClick={() => {Navigate(SignInUrl)}}>
+                        Sign In
+                    </button>
 
-                    <Link to="/sign-up">
-                        <button className="button__sign-up">
-                            Sign Up
-                        </button>
-                    </Link>
+                    <button
+                        className="button__sign-up"
+                        onClick={() => {Navigate(SignUpUrl)}}>
+                        Sign Up
+                    </button>
                 </div>
             </div>
         </div>

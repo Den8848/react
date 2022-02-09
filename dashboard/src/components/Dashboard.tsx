@@ -1,15 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+    const Navigate = useNavigate();
+    const RootUrl = '/';
+
     return (
         <div>
             <h2 className="title">Dashboard Page</h2>
 
             <div className="button__wrapper">
-                <Link to="/">
-                    <button type="submit" className="button__exit">Exit</button>
-                </Link>
+                    <button type="submit" className="button__exit" onClick={() => {Navigate(RootUrl)}}>Exit</button>
             </div>
         </div>
     );

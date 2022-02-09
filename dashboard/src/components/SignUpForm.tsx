@@ -4,7 +4,8 @@ import ValidationSchema from '../validation/signUpValidation';
 import { useNavigate } from "react-router-dom";
 
 const SignUpForm = () => {
-    let navigate = useNavigate();
+    const Navigate = useNavigate();
+    const DashboardUrl = '/dashboard';
 
     return (
         <div>
@@ -19,17 +20,15 @@ const SignUpForm = () => {
                     }}
                     validateOnChange={true}
                     validationSchema={ValidationSchema}
-                    onSubmit={(values) => {
-                        console.log(values);
-                        console.log('Form is validated!');
-                        navigate('/dashboard');
+                    onSubmit={() => {
+                        Navigate(DashboardUrl);
                     }}
                 >
-                    {props => <div className="form__wrapper">
+                    {({errors, touched}) => <div className="form__wrapper">
                         <Form className="form">
                             <label htmlFor="userName">User name</label>
                             <Field className="input__field" id="userName" name="userName" placeholder="Maximus" />
-                            {props.touched.userName && props.errors.userName && <p className="error__message">{props.errors.userName}</p>}
+                            {touched.userName && errors.userName && <p className="error__message">{errors.userName}</p>}
 
                             <label htmlFor="email">Email</label>
                             <Field
@@ -39,7 +38,7 @@ const SignUpForm = () => {
                                 placeholder="maximus@gmail.com"
                                 type="email"
                             />
-                            {props.touched.email && props.errors.email && <p className="error__message">{props.errors.email}</p>}
+                            {touched.email && errors.email && <p className="error__message">{errors.email}</p>}
 
                             <label htmlFor="password">Password</label>
                             <Field
@@ -48,7 +47,7 @@ const SignUpForm = () => {
                                 name="password"
                                 type="password"
                             />
-                            {props.touched.password && props.errors.password && <p className="error__message">{props.errors.password}</p>}
+                            {touched.password && errors.password && <p className="error__message">{errors.password}</p>}
 
                             <label htmlFor="password-repeat">Repeat your password</label>
                             <Field
@@ -57,7 +56,7 @@ const SignUpForm = () => {
                                 name="password-repeat"
                                 type="password"
                             />
-                            {props.touched.password && props.errors.password && <p className="error__message">{props.errors.password}</p>}
+                            {touched.password && errors.password && <p className="error__message">{errors.password}</p>}
 
                             <div className="button__wrapper">
                                 <button type="submit" className="button__submit">Submit</button>

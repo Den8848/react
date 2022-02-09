@@ -4,7 +4,8 @@ import ValidationSchema from '../validation/signInValidation';
 import { useNavigate } from "react-router-dom";
 
 const SignInForm = () => {
-    let navigate = useNavigate();
+    const Navigate = useNavigate();
+    const DashboardUrl = '/dashboard';
 
     return (
         <div>
@@ -18,13 +19,11 @@ const SignInForm = () => {
                     }}
                     validateOnChange={true}
                     validationSchema={ValidationSchema}
-                    onSubmit={(values) => {
-                        console.log(values);
-                        console.log('Form is validated!');
-                        navigate('/dashboard');
+                    onSubmit={() => {
+                        Navigate(DashboardUrl);
                     }}
                 >
-                    {props => <div className="form__wrapper">
+                    {({errors, touched}) => <div className="form__wrapper">
                         <Form className="form">
                             <label htmlFor="email">Email</label>
                             <Field
@@ -34,7 +33,7 @@ const SignInForm = () => {
                                 placeholder="maximus@gmail.com"
                                 type="email"
                             />
-                            {props.touched.email && props.errors.email && <p className="error__message">{props.errors.email}</p>}
+                            {touched.email && errors.email && <p className="error__message">{errors.email}</p>}
 
                             <label htmlFor="password">Password</label>
                             <Field
@@ -43,7 +42,7 @@ const SignInForm = () => {
                                 name="password"
                                 type="password"
                             />
-                            {props.touched.password && props.errors.password && <p className="error__message">{props.errors.password}</p>}
+                            {touched.password && errors.password && <p className="error__message">{errors.password}</p>}
 
                             <div className="button__wrapper">
                                 <button type="submit" className="button__submit">Submit</button>
